@@ -21,21 +21,25 @@ const Search = () => {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (status.search) {
       async function fetchData() {
         const req = await axios.post(
           "/youtube-search",
           {
+            // eslint-disable-next-line react-hooks/exhaustive-deps
             query: status.query,
           },
           { headers: headers }
         );
+
         setTimeout(() => {
+          // eslint-disable-next-line
           setStatus({ ...status, data: req.data.data_videos });
         }, 2000);
       }
       fetchData();
-    }
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status.search]);
   return (
     <>
